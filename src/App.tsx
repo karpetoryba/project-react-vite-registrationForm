@@ -7,6 +7,23 @@ function SimpleForm() {
     setStep((prevStep) => prevStep + 1);
   };
 
+  const [formData, setFormData] = useState({
+    accountType: "",
+    name: "",
+    email: "",
+    password: "",
+    age: "",
+    interest: "",
+    bio: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData, // On copie toutes les données actuelles
+      [name]: value, // On met à jour uniquement le champ qui a changé
+    });
+  };
   const renderStepContent = () => {
     switch (step) {
       case 1:
@@ -39,17 +56,26 @@ function SimpleForm() {
             </h2>
             <input
               type="text"
+              name="name"
               placeholder="Entrez votre nom"
+              value={formData.name}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
             <input
               type="text"
+              name="email"
               placeholder="Entrez votre Email"
+              value={formData.email}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
             <input
               type="text"
+              name="password"
               placeholder="Entrez votre Password"
+              value={formData.password}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
           </div>
@@ -62,17 +88,26 @@ function SimpleForm() {
             </h2>
             <input
               type="text"
+              name="age"
               placeholder="Entrez votre age"
+              value={formData.age}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
             <input
               type="text"
+              name="interest"
               placeholder="Area of interest"
+              value={formData.interest}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
             <input
-              type="Bio/Desctiption"
-              placeholder="Entrez votre Password"
+              type="text"
+              name="bio"
+              placeholder="Entre votre bio"
+              value={formData.bio}
+              onChange={handleChange}
               className="border border-gray-300 p-2 rounded mb-4"
             />
           </div>
@@ -82,6 +117,24 @@ function SimpleForm() {
           <div>
             <h2 className="text-xl font-bold mb-4">Étape 4 : Confirmation</h2>
             <p>vous avez reussié</p>
+            <p>
+              <strong>Nom :</strong> {formData.name}
+            </p>
+            <p>
+              <strong>Email :</strong> {formData.email}
+            </p>
+            <p>
+              <strong>Password :</strong> {formData.password}
+            </p>
+            <p>
+              <strong>Age :</strong> {formData.age}
+            </p>
+            <p>
+              <strong>Intérêt :</strong> {formData.interest}
+            </p>
+            <p>
+              <strong>bio :</strong> {formData.bio}
+            </p>
           </div>
         );
 
