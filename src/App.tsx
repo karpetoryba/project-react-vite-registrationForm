@@ -6,6 +6,11 @@ function SimpleForm() {
   const nextStep = () => {
     setStep((prevStep) => prevStep + 1);
   };
+  const backStep = () => {
+    if (step > 1) {
+      setStep((prevStep) => prevStep - 1);
+    }
+  };
 
   const [formData, setFormData] = useState({
     accountType: "",
@@ -20,48 +25,71 @@ function SimpleForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
-      ...formData, // On copie toutes les données actuelles
-      [name]: value, // On met à jour uniquement le champ qui a changé
+      ...formData,
+      [name]: value,
     });
   };
+
+  const renderStepCircles = () => {
+    return (
+      <div className="flex items-center justify-center mb-8 relative">
+        <div className="absolute bg-gray-300 h-1 w-64 top-1/2 left-4 right-4 transform -translate-y-1/2 z-0"></div>
+
+        {["1", "2", "3"].map((number, index) => (
+          <div
+            key={index}
+            className={`relative z-10 w-8 h-8 flex items-center justify-center rounded-full text-white ${
+              step === index + 1 ? "bg-purple-500" : "bg-gray-300"
+            } mx-8`}
+          >
+            {number}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const renderStepContent = () => {
     switch (step) {
       case 1:
         return (
           <div>
-            <h2 className="text-xl font-bold mb-4">
-              Étape 1 : Sélectionnez le type de compte
-            </h2>
-            <div className=" space-x-4">
-              <p className="text-gray-500 mb-4">Chose your account type</p>
+            <div className="space-x-4">
+              <p className="text-gray-500 mb-4 text-sm">
+                Choose your account type
+              </p>
               <div className="flex flex-col">
                 <button
                   onClick={() => handleButtonClick("Personal Account")}
-                  className="flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
+                  className="w-80 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
                   <img
                     src="public/button-1.png"
                     alt="icon"
-                    className="w-20 h-20 mr-2"
+                    className="w-15 h-15 mr-2"
                   />
-                  <strong>Personal Account</strong>
-                  <p className="text-gray-500 mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
+                  <div className="flex flex-col items-start">
+                    <strong>Personal Account</strong>
+                    <p className="text-gray-500 mb-4 text-sm">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                  </div>
                 </button>
                 <button
                   onClick={() => handleButtonClick("Business Account")}
-                  className="flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
+                  className="w-80 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
                   <img
                     src="public/button-2.png"
                     alt="icon"
-                    className="w-20 h-20 mr-2"
+                    className="w-15 h-15 mr-2"
                   />
-                  <strong> Business Account</strong>
-                  <p className="text-gray-500 mb-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
+                  <div className="flex flex-col items-start text-sm">
+                    <strong> Business Account</strong>
+                    <p className="text-gray-500 mb-4 ">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                  </div>
                 </button>
               </div>
             </div>
@@ -70,64 +98,64 @@ function SimpleForm() {
       case 2:
         return (
           <div>
-            <h2 className="text-xl font-bold mb-4">
-              Étape 2 : Informations personnelles
-            </h2>
+            <p>Name</p>
             <input
               type="text"
               name="name"
-              placeholder="Entrez votre nom"
+              placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
+            <p>Email</p>
             <input
               type="text"
               name="email"
-              placeholder="Entrez votre Email"
+              placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
+            <p>Password</p>
             <input
-              type="text"
+              type="password"
               name="password"
-              placeholder="Entrez votre Password"
+              placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
           </div>
         );
       case 3:
         return (
           <div>
-            <h2 className="text-xl font-bold mb-4">
-              Étape 3 : Information personnelles
-            </h2>
+            <p>Age</p>
             <input
               type="text"
               name="age"
-              placeholder="Entrez votre age"
+              placeholder="Enter your age"
               value={formData.age}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
+            <p>Area of interest</p>
             <input
               type="text"
               name="interest"
               placeholder="Area of interest"
               value={formData.interest}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
+            <p>Bio/Description</p>
             <input
               type="text"
               name="bio"
-              placeholder="Entre votre bio"
+              placeholder="Enter your bio"
               value={formData.bio}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4"
+              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
             />
           </div>
         );
@@ -150,31 +178,39 @@ function SimpleForm() {
     }
   };
 
-  // Fonction pour gérer le clic sur les boutons de sélection de compte
   const handleButtonClick = (accountType) => {
     console.log("Selected Account Type:", accountType);
-    // Passer à l'étape suivante
+    setFormData({
+      ...formData,
+      accountType,
+    });
     nextStep();
   };
 
   return (
-    <div className="flex items-center justify-center h-screen ">
-      <div className="flex flex-col items-center justify-center w-full max-w-md p-6 bg-white ">
+    <div className="flex items-center justify-center h-screen">
+      <div className="flex flex-col items-center justify-center w-full max-w-lg p-8 bg-white h-auto">
         <h1 className="text-2xl font-bold mb-4">Registration Form</h1>
-        <p className="text-gray-500 mb-4">
-          Please fill out this form with the required information
-        </p>
-
+        {renderStepCircles()}
         {renderStepContent()}
-        {/* Bouton "NEXT" visible seulement sur les étapes sauf la dernière */}
-        {step < 4 && (
-          <button
-            onClick={nextStep}
-            className="mt-4 bg-purple-500 text-white border border-white px-4 py-2 rounded hover:bg-gray- transition duration-300 "
-          >
-            NEXT
-          </button>
-        )}
+        <div className="flex space-x-4 mt-4">
+          {step > 1 && step < 4 && (
+            <button
+              onClick={backStep}
+              className="bg-gray-400 text-white border border-white px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
+            >
+              Previous
+            </button>
+          )}
+          {step < 4 && (
+            <button
+              onClick={nextStep}
+              className="bg-purple-500 text-white border border-white px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
