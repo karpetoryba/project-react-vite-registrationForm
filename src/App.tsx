@@ -116,25 +116,9 @@ function SimpleForm() {
         return (
           <div>
             <h2 className="text-xl font-bold mb-4">Étape 4 : Confirmation</h2>
-            <p>vous avez reussié</p>
-            <p>
-              <strong>Nom :</strong> {formData.name}
-            </p>
-            <p>
-              <strong>Email :</strong> {formData.email}
-            </p>
-            <p>
-              <strong>Password :</strong> {formData.password}
-            </p>
-            <p>
-              <strong>Age :</strong> {formData.age}
-            </p>
-            <p>
-              <strong>Intérêt :</strong> {formData.interest}
-            </p>
-            <p>
-              <strong>bio :</strong> {formData.bio}
-            </p>
+            <p>Congrats {formData.name}</p>
+            <p>Registration Successful</p>
+            <p>Email confirmation sent to {formData.email}</p>
           </div>
         );
 
