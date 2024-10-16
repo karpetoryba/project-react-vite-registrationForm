@@ -37,8 +37,13 @@ function SimpleForm() {
               <div className="flex flex-col">
                 <button
                   onClick={() => handleButtonClick("Personal Account")}
-                  className=" text-black px-4 py-2 rounded  hover:bg-gray-200"
+                  className="flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
+                  <img
+                    src="public/button-1.png"
+                    alt="icon"
+                    className="w-20 h-20 mr-2"
+                  />
                   <strong>Personal Account</strong>
                   <p className="text-gray-500 mb-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -46,8 +51,13 @@ function SimpleForm() {
                 </button>
                 <button
                   onClick={() => handleButtonClick("Business Account")}
-                  className="bg-white text-black border border-black px-4 py-2 rounded hover:bg-gray-200"
+                  className="flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
+                  <img
+                    src="public/button-2.png"
+                    alt="icon"
+                    className="w-20 h-20 mr-2"
+                  />
                   <strong> Business Account</strong>
                   <p className="text-gray-500 mb-4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -123,11 +133,15 @@ function SimpleForm() {
         );
       case 4:
         return (
-          <div>
-            <h2 className="text-xl font-bold mb-4">Étape 4 : Confirmation</h2>
-            <p>Congrats {formData.name}</p>
-            <p>Registration Successful</p>
-            <p>Email confirmation sent to {formData.email}</p>
+          <div className="flex flex-col items-center p-6">
+            <div className="bg-green-500 text-white rounded-full text-6xl p-6 mb-4">
+              ✓
+            </div>
+            <p className="text-2xl font-bold">Congrats {formData.name}</p>
+            <p className="text-xl font-bold">Registration Successful</p>
+            <p className="text-lg font-bold">
+              Email confirmation sent to {formData.email}
+            </p>
           </div>
         );
 
@@ -156,7 +170,7 @@ function SimpleForm() {
         {step < 4 && (
           <button
             onClick={nextStep}
-            className="mt-4 bg-pastel-purple-500 text-white border border-black px-4 py-2 rounded hover:bg-gray-800 transition duration-300"
+            className="mt-4 bg-purple-500 text-white border border-white px-4 py-2 rounded hover:bg-gray- transition duration-300 "
           >
             NEXT
           </button>
