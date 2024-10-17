@@ -33,7 +33,7 @@ function SimpleForm() {
   const renderStepCircles = () => {
     return (
       <div className="flex items-center justify-center mb-8 relative p-5">
-        <div className="absolute bg-gray-300 h-1 w-64 top-1/2 left-4 right-4 transform -translate-y-1/2 z-0"></div>
+        <div className="absolute bg-gray-300 h-1 w-200 top-1/2 left-4 right-4 transform -translate-y-1/2 z-0"></div>
 
         {["1", "2", "3"].map((number, index) => (
           <div
