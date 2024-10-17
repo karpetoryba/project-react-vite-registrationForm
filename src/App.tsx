@@ -55,7 +55,7 @@ function SimpleForm() {
         return (
           <div>
             <div className="space-x-4">
-              <p className="text-gray-500 mb-4 text-sm">
+              <p className="text-gray-500 mb-4 text-xs">
                 Choose your account type
               </p>
               <div className="flex flex-col">
@@ -70,7 +70,7 @@ function SimpleForm() {
                   />
                   <div className="flex flex-col items-start text-sm">
                     <strong>Personal Account</strong>
-                    <p className="text-gray-500 mb-4 text-sm text-left">
+                    <p className="text-gray-500 mb-4 text-xs text-left">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                   </div>
@@ -84,7 +84,7 @@ function SimpleForm() {
                     alt="icon"
                     className="w-15 h-15 mr-2"
                   />
-                  <div className="flex flex-col items-start text-sm text-left">
+                  <div className="flex flex-col items-start text-xs text-left">
                     <strong> Business Account</strong>
                     <p className="text-gray-500 mb-4 ">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -98,7 +98,7 @@ function SimpleForm() {
       case 2:
         return (
           <div>
-            <p>Name</p>
+            <p className="text-xs">Name</p>
             <input
               type="text"
               name="name"
@@ -107,7 +107,7 @@ function SimpleForm() {
               onChange={handleChange}
               className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50 "
             />
-            <p>Email</p>
+            <p className="text-xs">Email</p>
             <input
               type="text"
               name="email"
@@ -116,7 +116,7 @@ function SimpleForm() {
               onChange={handleChange}
               className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
-            <p>Password</p>
+            <p className="text-xs">Password</p>
             <input
               type="password"
               name="password"
@@ -130,7 +130,7 @@ function SimpleForm() {
       case 3:
         return (
           <div>
-            <p>Age</p>
+            <p className="text-xs">Age</p>
             <input
               type="text"
               name="age"
@@ -139,7 +139,7 @@ function SimpleForm() {
               onChange={handleChange}
               className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
-            <p>Area of interest</p>
+            <p className="text-xs">Area of interest</p>
             <input
               type="text"
               name="interest"
@@ -148,7 +148,7 @@ function SimpleForm() {
               onChange={handleChange}
               className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
-            <p>Bio/Description</p>
+            <p className="text-xs">Bio/Description</p>
             <input
               type="text"
               name="bio"
@@ -196,7 +196,7 @@ function SimpleForm() {
     <div className="flex items-center justify-center h-screen">
       <div className="flex flex-col items-center justify-center max-w-lg p-8 bg-white w-[600px] h-[700px]">
         <h1 className="text-2xl font-bold mb-4">Registration Form</h1>
-        <p className=" text-gray-300">
+        <p className=" text-gray-300 text-xs">
           Please fill out this form with the required information
         </p>
         {renderStepCircles()}
