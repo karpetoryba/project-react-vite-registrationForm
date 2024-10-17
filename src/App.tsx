@@ -32,7 +32,7 @@ function SimpleForm() {
 
   const renderStepCircles = () => {
     return (
-      <div className="flex items-center justify-center mb-8 relative">
+      <div className="flex items-center justify-center mb-8 relative p-5">
         <div className="absolute bg-gray-300 h-1 w-64 top-1/2 left-4 right-4 transform -translate-y-1/2 z-0"></div>
 
         {["1", "2", "3"].map((number, index) => (
@@ -105,7 +105,7 @@ function SimpleForm() {
               placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50 "
             />
             <p>Email</p>
             <input
@@ -114,7 +114,7 @@ function SimpleForm() {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
             <p>Password</p>
             <input
@@ -123,7 +123,7 @@ function SimpleForm() {
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
           </div>
         );
@@ -137,7 +137,7 @@ function SimpleForm() {
               placeholder="Enter your age"
               value={formData.age}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
             <p>Area of interest</p>
             <input
@@ -146,7 +146,7 @@ function SimpleForm() {
               placeholder="Area of interest"
               value={formData.interest}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
             <p>Bio/Description</p>
             <input
@@ -155,7 +155,7 @@ function SimpleForm() {
               placeholder="Enter your bio"
               value={formData.bio}
               onChange={handleChange}
-              className="w-80 border border-gray-300 p-2 rounded mb-4 bg-slate-100"
+              className="w-96 border border-gray-300 p-2 rounded mb-4 bg-slate-50"
             />
           </div>
         );
@@ -192,9 +192,12 @@ function SimpleForm() {
     <div className="flex items-center justify-center h-screen">
       <div className="flex flex-col items-center justify-center max-w-lg p-8 bg-white w-[600px] h-[700px]">
         <h1 className="text-2xl font-bold mb-4">Registration Form</h1>
+        <p className=" text-gray-300">
+          Please fill out this form with the required information
+        </p>
         {renderStepCircles()}
         {renderStepContent()}
-        <div className="flex space-x-4 mt-4">
+        <div className="flex space-x-4 mt-4 ml-auto">
           {step > 1 && step < 4 && (
             <button
               onClick={backStep}
@@ -208,7 +211,7 @@ function SimpleForm() {
               onClick={nextStep}
               className="bg-purple-500 text-white border border-white px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
             >
-              Send
+              Next
             </button>
           )}
         </div>
