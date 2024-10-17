@@ -61,30 +61,30 @@ function SimpleForm() {
               <div className="flex flex-col">
                 <button
                   onClick={() => handleButtonClick("Personal Account")}
-                  className="w-80 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
+                  className="w-100 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
                   <img
                     src="public/button-1.png"
                     alt="icon"
                     className="w-15 h-15 mr-2"
                   />
-                  <div className="flex flex-col items-start">
+                  <div className="flex flex-col items-start text-sm">
                     <strong>Personal Account</strong>
-                    <p className="text-gray-500 mb-4 text-sm">
+                    <p className="text-gray-500 mb-4 text-sm text-left">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                   </div>
                 </button>
                 <button
                   onClick={() => handleButtonClick("Business Account")}
-                  className="w-80 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
+                  className="w-100 flex items-center text-black px-4 py-2 rounded hover:bg-gray-200"
                 >
                   <img
                     src="public/button-2.png"
                     alt="icon"
                     className="w-15 h-15 mr-2"
                   />
-                  <div className="flex flex-col items-start text-sm">
+                  <div className="flex flex-col items-start text-sm text-left">
                     <strong> Business Account</strong>
                     <p className="text-gray-500 mb-4 ">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -190,7 +190,7 @@ function SimpleForm() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="flex flex-col items-center justify-center w-full max-w-lg p-8 bg-white h-auto">
+      <div className="flex flex-col items-center justify-center max-w-lg p-8 bg-white w-[600px] h-[700px]">
         <h1 className="text-2xl font-bold mb-4">Registration Form</h1>
         {renderStepCircles()}
         {renderStepContent()}
@@ -198,7 +198,7 @@ function SimpleForm() {
           {step > 1 && step < 4 && (
             <button
               onClick={backStep}
-              className="bg-gray-400 text-white border border-white px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
+              className="bg-white-400 text-gray-300 border border-white px-4 py-2 rounded"
             >
               Previous
             </button>
@@ -208,7 +208,7 @@ function SimpleForm() {
               onClick={nextStep}
               className="bg-purple-500 text-white border border-white px-4 py-2 rounded hover:bg-gray-300 transition duration-300"
             >
-              Next
+              Send
             </button>
           )}
         </div>
