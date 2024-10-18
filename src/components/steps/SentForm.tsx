@@ -13,11 +13,11 @@ const SentForm = ({ formData }: SentFormProps) => {
       </div>
 
       <p className="text-2xl font-bold break-words">
-        Поздравляем, {formData.name}
+        Congrats, {formData.name}
       </p>
-      <p className="text-xl font-bold break-words">Регистрация успешна</p>
+      <p className="text-xl font-bold break-words">Registration Successful</p>
       <p className="text-lg font-bold break-words">
-        Подтверждение отправлено на {formData.email}
+        Email confirmation sent to {formData.email}
       </p>
     </div>
   );
